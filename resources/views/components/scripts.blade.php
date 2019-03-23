@@ -9,3 +9,5 @@
 <script src="{{asset('template/js/jquery.waypoints.min.js')}}"></script>
 <script src="{{asset('template/js/mail-script.js')}}"></script>
 <script src="{{asset('template/js/custom.js')}}"></script>
+{{--JS mask--}}
+<script src="{{asset('js/jquery.mask.js')}}"></script>
