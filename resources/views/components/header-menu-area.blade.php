@@ -58,22 +58,24 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="#services-contact">Contact</a>
                                 </li>
-
                                 @auth
                                     <li class="nav-item submenu dropdown">
-                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="false" aria-expanded="false">{{isset(Auth::user()->name)}}</a>
-                                        <ul class="dropdown-menu">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="services.html">Logout</a>
-                                            </li>
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="false" aria-expanded="false">{{Auth::user()->name}}</a>
+                                    </li>
 
-                                        </ul>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <form action="{{route('logout')}}" method="post">
+                                                @csrf
+                                                <button class="genric-btn danger-border circle small" type="submit">Logout</button>
+                                            </form>
+                                        </a>
                                     </li>
                                 @endauth
 
                                 @guest
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Login</a>
+                                        <a class="nav-link" href="{{route('login')}}">Login</a>
                                     </li>
                                 @endguest
 
