@@ -5,11 +5,11 @@
         <div class="container">
             <div class="row justify-content-center mb-3">
                 <div class="col-10">
-                    <h2>Lista de Pacientes</h2>
+                    <h2>Patient List</h2>
                 </div>
                 <div class="col-md ml-n5">
                     @auth
-                    <a href="#" class="genric-btn success circle arrow">Success
+                    <a href="#" class="genric-btn success circle arrow">Register Query/Patient
                         <span class="lnr lnr-arrow-right"></span>
                     </a>
                     @endauth
@@ -18,9 +18,9 @@
 
             <div class="input-group input-group-sm mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-sm">Pesquise sua consulta</span>
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Search your query</span>
                 </div>
-                <input type="text" class="form-control" id="myInput" onkeyup="pesquisar()" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                <input type="text" class="form-control" id="myInput" onkeyup="filterSearchTable()" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
             </div>
 
 
@@ -28,9 +28,9 @@
                 <thead class="thead-dark">
                 <tr>
                     <th scope="col"></th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Tipo da Consulta</th>
-                    <th scope="col">Doutor(a)</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Type of Query</th>
+                    <th scope="col">Doctor</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -56,7 +56,7 @@
     </section>
 
     <script>
-        function pesquisar() {
+        function filterSearchTable() {
             var input, filter, table, tr, td, td1, i, txtValue, txtValue1 ;
             input = document.getElementById("myInput");
             filter = input.value.toUpperCase();
