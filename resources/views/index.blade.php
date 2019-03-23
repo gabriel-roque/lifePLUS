@@ -13,7 +13,7 @@
                         <h1>We Care for Your Health Every Moment</h1>
                         <p>If you are looking at blank cassettes on the web, you may be very confused at the difference in price You may see some
                             for as low as each.</p>
-                        <a class="main_btn mr-10" href="{{route('home')}}">Search</a>
+                        <a class="main_btn mr-10" href="{{route('home')}}">Search <i class="fa fa-search"></i></a>
                     </div>
                 </div>
             </div>
