@@ -20,7 +20,8 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-sm">Search your query</span>
                 </div>
-                <input type="text" class="form-control" id="myInput" onkeyup="filterSearchTable()" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                <input type="text" class="form-control" id="myInput" onkeyup="filterSearchTable()"
+                       aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Ex: Mark Drake or Susan Andraes ....">
             </div>
 
 
