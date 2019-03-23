@@ -27,6 +27,11 @@
                             <input id="prontuarioPatient" type="text" name="prontuarioPatient" class="form-control prontuarioPatient"
                                    placeholder="Ex: 10306" min="1" data-mask="00.000">
                         </div>
+                        @if($errors->has('prontuarioPatient'))
+                            <div class="badge badge-danger">
+                                    {{$errors->first('prontuarioPatient')}}
+                            </div>
+                        @endif
                     </div>
 
                     <div class="col-lg-6">
@@ -34,6 +39,11 @@
                             <label for="namePatient" class="h6">Nome of Patient</label>
                             <input id="namePatient" type="text" name="namePatient" class="form-control" placeholder="Ex: Michael Vince">
                         </div>
+                        @if($errors->has('namePatient'))
+                            <div class="badge badge-danger">
+                                {{$errors->first('namePatient')}}
+                            </div>
+                        @endif
                     </div>
                 </div>
 
@@ -45,8 +55,12 @@
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                             </select>
+                            @if($errors->has('sexoPatient'))
+                                <div class="badge badge-danger">
+                                    {{$errors->first('sexoPatient')}}
+                                </div>
+                            @endif
                         </div>
-
                     </div>
 
                     <div class="col-lg-4">
@@ -55,6 +69,11 @@
                             <input id="telPatient" type="text" name="telPatient" class="form-control"
                                    placeholder="Ex: (00) 00000-0000" data-mask="(00) 00000-0000">
                         </div>
+                        @if($errors->has('telPatient'))
+                            <div class="badge badge-danger">
+                                {{$errors->first('telPatient')}}
+                            </div>
+                        @endif
                     </div>
 
                     <div class="col-lg-6">
@@ -62,6 +81,11 @@
                             <label for="typeQueryPatient" class="h6">Type query of Patient</label>
                             <input id="typeQueryPatient" type="text" name="typeQueryPatient" class="form-control" placeholder="Ex: Pediatrician">
                         </div>
+                        @if($errors->has('typeQueryPatient'))
+                            <div class="badge badge-danger">
+                                {{$errors->first('typeQueryPatient')}}
+                            </div>
+                        @endif
                     </div>
                 </div>
 
@@ -71,6 +95,11 @@
                             <label for="doctorNamePatient" class="h6">Doctor of Patient</label>
                             <input id="doctorNamePatient" type="text" name="doctorNamePatient" class="form-control" placeholder="Ex: Luna Andreas">
                         </div>
+                        @if($errors->has('doctorNamePatient'))
+                            <div class="badge badge-danger">
+                                {{$errors->first('doctorNamePatient')}}
+                            </div>
+                        @endif
                     </div>
 
                     <div class="col-lg-6">

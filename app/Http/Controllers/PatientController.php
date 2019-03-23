@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PatientFormRequest;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 
@@ -42,7 +43,7 @@ class PatientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PatientFormRequest $request)
     {
         $padient = new Patient();
         if (isset($padient)){
