@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Patient;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,6 +25,7 @@ class HomeController extends Controller
 
     public function listPatient()
     {
-        return view('home');
+        $patients = Patient::all();
+        return view('home', compact('patients'));
     }
 }

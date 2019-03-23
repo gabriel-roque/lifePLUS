@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Patient;
 use Illuminate\Http\Request;
 
 class PatientController extends Controller
@@ -43,7 +44,19 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $padient = new Patient();
+        if (isset($padient)){
+            $padient->prontuarioPatient = $request->input('prontuarioPatient');
+            $padient->namePatient = $request->input('namePatient');
+            $padient->sexoPatient = $request->input('sexoPatient');
+            $padient->telPatient = $request->input('telPatient');
+            $padient->typeQueryPatient = $request->input('typeQueryPatient');
+            $padient->doctorNamePatient = $request->input('doctorNamePatient');
+            $padient->save();
+            return redirect(route('home')) ;
+        }else{
+            return redirect('/');
+        }
     }
 
     /**

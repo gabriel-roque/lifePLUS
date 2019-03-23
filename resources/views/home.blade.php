@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-md ml-n5">
                     @auth
-                    <a href="#" class="genric-btn success circle arrow">Register Query/Patient
+                    <a href="{{route('patient.create')}}" class="genric-btn success circle arrow">Register Query/Patient
                         <span class="lnr lnr-arrow-right"></span>
                     </a>
                     @endauth
@@ -28,31 +28,32 @@
             <table class="table" id="myTable">
                 <thead class="thead-dark">
                 <tr>
-                    <th scope="col"></th>
+                    <th scope="col">ID Pront.</th>
                     <th scope="col">Name</th>
                     <th scope="col">Type of Query</th>
                     <th scope="col">Doctor</th>
+                    @auth
+                    <th scope="col">Actions</th>
+                    @endauth
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Lucas</td>
-                    <td>Pediatra</td>
-                    <td>Dr. Maria</td>
-                </tr>
+                    @foreach($patients as $pat)
+                        <tr>
+                            <th scope="row">{{$pat->prontuarioPatient}}</th>
+                            <td>{{$pat->namePatient}}</td>
+                            <td>{{$pat->typeQueryPatient}}</td>
+                            <td>{{$pat->doctorNamePatient}}</td>
+                            @auth
+                                <td>
+                                    <a href="#" class="genric-btn info circle small">Edit</a>
+                                    <a href="#" class="genric-btn danger circle small">Delete</a>
+                                </td>
+                            @endauth
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
-
-
-
         </div>
     </section>
 
