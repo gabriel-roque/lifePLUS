@@ -115,6 +115,12 @@ class PatientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $patient = Patient::find($id);
+        if (isset($patient)){
+            $patient->delete($id);
+            return redirect(route('home'));
+        }else{
+            return redirect(route('home'));
+        }
     }
 }

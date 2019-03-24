@@ -34,6 +34,7 @@
                     <th scope="col">Doctor</th>
                     @auth
                     <th scope="col">Actions</th>
+                    <th scope="col"></th>
                     @endauth
                 </tr>
                 </thead>
@@ -47,7 +48,13 @@
                             @auth
                                 <td>
                                     <a href="{{route('patient.edit', $pat->id)}}" class="genric-btn info circle small">Edit</a>
-                                    <a href="#" class="genric-btn danger circle small">Delete</a>
+                                </td>
+                                <td>
+                                    <form action="{{route('patient.destroy', $pat->id)}}" method="post">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        @csrf
+                                        <button type="submit" class="genric-btn danger circle small">Delete</button>
+                                    </form>
                                 </td>
                             @endauth
                         </tr>
