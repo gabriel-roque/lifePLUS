@@ -24,10 +24,10 @@ class PatientFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'prontuarioPatient' => 'required|min:1|max:6',
+            'prontuarioPatient' => 'required|min:1|max:6|unique:patients',
             'namePatient' => 'required|min:15|max:50',
             'sexoPatient' => 'required',
-            'telPatient' => 'required|max:15|min:15',
+            'telPatient' => 'required|max:15|min:15|unique:patients',
             'typeQueryPatient' => 'required|max:50',
             'doctorNamePatient' => 'required|max:50|min:15'
         ];

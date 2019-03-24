@@ -46,7 +46,7 @@
                             <td>{{$pat->doctorNamePatient}}</td>
                             @auth
                                 <td>
-                                    <a href="#" class="genric-btn info circle small">Edit</a>
+                                    <a href="{{route('patient.edit', $pat->id)}}" class="genric-btn info circle small">Edit</a>
                                     <a href="#" class="genric-btn danger circle small">Delete</a>
                                 </td>
                             @endauth

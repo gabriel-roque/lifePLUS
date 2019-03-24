@@ -34,7 +34,7 @@ class PatientController extends Controller
      */
     public function create()
     {
-        return view('create-update-patient');
+        return view('create-patient');
     }
 
     /**
@@ -79,7 +79,8 @@ class PatientController extends Controller
      */
     public function edit($id)
     {
-        //
+        $patientEdit = Patient::find($id);
+        return view('update-patient', compact('patientEdit'));
     }
 
     /**
@@ -89,9 +90,21 @@ class PatientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PatientFormRequest $request, $id)
     {
-        //
+        $padient = Patient::find($id);
+        if (isset($padient)){
+            $padient->prontuarioPatient = $request->input('prontuarioPatient');
+            $padient->namePatient = $request->input('namePatient');
+            $padient->sexoPatient = $request->input('sexoPatient');
+            $padient->telPatient = $request->input('telPatient');
+            $padient->typeQueryPatient = $request->input('typeQueryPatient');
+            $padient->doctorNamePatient = $request->input('doctorNamePatient');
+            $padient->save();
+            return redirect(route('home')) ;
+        }else{
+            return redirect('/');
+        }
     }
 
     /**
