@@ -25,7 +25,7 @@ class HomeController extends Controller
 
     public function listPatient()
     {
-        $patients = Patient::all();
+        $patients = Patient::paginate(4);
         return view('home', compact('patients'));
     }
 }

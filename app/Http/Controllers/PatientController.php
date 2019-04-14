@@ -45,16 +45,9 @@ class PatientController extends Controller
      */
     public function store(PatientFormRequest $request)
     {
-        $padient = new Patient();
-        if (isset($padient)){
-            $padient->prontuarioPatient = $request->input('prontuarioPatient');
-            $padient->namePatient = $request->input('namePatient');
-            $padient->sexoPatient = $request->input('sexoPatient');
-            $padient->telPatient = $request->input('telPatient');
-            $padient->typeQueryPatient = $request->input('typeQueryPatient');
-            $padient->doctorNamePatient = $request->input('doctorNamePatient');
-            $padient->save();
-            return redirect(route('home')) ;
+        if(Patient::storePadient($request))
+        {
+            return redirect(route('home'));
         }else{
             return redirect('/');
         }
@@ -92,16 +85,8 @@ class PatientController extends Controller
      */
     public function update(PatientFormRequest $request, $id)
     {
-        $padient = Patient::find($id);
-        if (isset($padient)){
-            $padient->prontuarioPatient = $request->input('prontuarioPatient');
-            $padient->namePatient = $request->input('namePatient');
-            $padient->sexoPatient = $request->input('sexoPatient');
-            $padient->telPatient = $request->input('telPatient');
-            $padient->typeQueryPatient = $request->input('typeQueryPatient');
-            $padient->doctorNamePatient = $request->input('doctorNamePatient');
-            $padient->save();
-            return redirect(route('home')) ;
+        if(Patient::updatePatient($request, $id)){
+            return redirect(route('home'));
         }else{
             return redirect('/');
         }
@@ -115,12 +100,11 @@ class PatientController extends Controller
      */
     public function destroy($id)
     {
-        $patient = Patient::find($id);
-        if (isset($patient)){
-            $patient->delete($id);
+        if(Patient::deletePatient($id))
+        {
             return redirect(route('home'));
         }else{
-            return redirect(route('home'));
+            return redirect('/');
         }
     }
 }
